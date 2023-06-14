@@ -26,26 +26,33 @@ class _NewTransactionState extends State<NewTransaction> {
 
   @override
   Widget build(BuildContext context) {
-    Widget textField(String placeHolder, TextInputType keyboardType,
-        TextEditingController controller) {
+    Widget textField(
+      String placeHolder,
+      TextInputType keyboardType,
+      TextEditingController controller,
+    ) {
       return Container(
-        margin: EdgeInsets.all(10),
+        margin: const EdgeInsets.all(10),
         child: TextField(
           keyboardType: keyboardType,
           controller: controller,
+          cursorColor: Theme.of(context).colorScheme.secondary,
           decoration: InputDecoration(
             labelText: placeHolder,
-            labelStyle:
-                TextStyle(color: Theme.of(context).colorScheme.secondary),
-            contentPadding: EdgeInsets.all(10),
+            labelStyle: TextStyle(
+              color: Theme.of(context).colorScheme.secondary,
+            ),
+            contentPadding: const EdgeInsets.all(10),
             focusedBorder: OutlineInputBorder(
-              borderSide:
-                  BorderSide(color: Theme.of(context).colorScheme.secondary),
+              borderSide: BorderSide(
+                color: Theme.of(context).colorScheme.secondary,
+              ),
               borderRadius: BorderRadius.circular(10),
             ),
             enabledBorder: OutlineInputBorder(
-              borderSide:
-                  BorderSide(color: Theme.of(context).colorScheme.secondary),
+              borderSide: BorderSide(
+                color: Theme.of(context).colorScheme.secondary,
+              ),
               borderRadius: BorderRadius.circular(10),
             ),
           ),
@@ -54,7 +61,7 @@ class _NewTransactionState extends State<NewTransaction> {
     }
 
     return Container(
-      margin: EdgeInsets.all(10),
+      margin: const EdgeInsets.all(10),
       child: Column(
         children: [
           textField("Enter title", TextInputType.text, titleController),
@@ -65,10 +72,6 @@ class _NewTransactionState extends State<NewTransaction> {
                 children: [
                   Text("No date chosen"),
                   TextButton(
-                    child: Text(
-                      "Choose date",
-                      style: TextStyle(color: Colors.amber),
-                    ),
                     onPressed: null,
                     style: TextButton.styleFrom(
                       textStyle: TextStyle(
@@ -77,6 +80,10 @@ class _NewTransactionState extends State<NewTransaction> {
                           decoration: TextDecoration.underline,
                           decorationThickness: 2,
                           color: Theme.of(context).colorScheme.secondary),
+                    ),
+                    child: const Text(
+                      "Choose date",
+                      style: TextStyle(color: Colors.amber),
                     ),
                   ),
                 ]),
