@@ -2,40 +2,9 @@ import 'package:flutter/material.dart';
 import 'transaction.dart';
 
 class TransactionList extends StatelessWidget {
-  TransactionList({super.key});
-
-  List<Transaction> userTransaction = [
-    Transaction(
-      id: "t1",
-      title: "test",
-      price: 12.34,
-      date: DateTime(2023, 5, 12),
-    ),
-    Transaction(
-      id: "t2",
-      title: "Grocery",
-      price: 52.34,
-      date: DateTime(2023, 6, 12),
-    ),
-    Transaction(
-      id: "t3",
-      title: "Shoes",
-      price: 52.34,
-      date: DateTime(2023, 10, 12),
-    ),
-    Transaction(
-      id: "t3",
-      title: "Shoes",
-      price: 52.34,
-      date: DateTime(2023, 10, 12),
-    ),
-    Transaction(
-      id: "t3",
-      title: "Shoes",
-      price: 52.34,
-      date: DateTime(2023, 10, 12),
-    ),
-  ];
+  final List<Transaction> userTransaction;
+  final Function deleteTransaction;
+  TransactionList(this.userTransaction, this.deleteTransaction);
 
   @override
   Widget build(BuildContext context) {
@@ -49,14 +18,17 @@ class TransactionList extends StatelessWidget {
             margin: EdgeInsets.all(5),
             elevation: 5,
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Container(
-                  child: Text(
-                    "\$ ${transaction.price}",
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 18,
+                  height: 50,
+                  width: 100,
+                  child: FittedBox(
+                    child: Text(
+                      "\$ ${transaction.price.toStringAsFixed(2)}",
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 18,
+                      ),
                     ),
                   ),
                   margin: EdgeInsets.all(10),
@@ -66,27 +38,33 @@ class TransactionList extends StatelessWidget {
                     borderRadius: BorderRadius.circular(10),
                   ),
                 ),
-                Column(
-                  children: [
-                    Text(
-                      "${transaction.title}",
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 14,
+                Flexible(
+                  flex: 1,
+                  fit: FlexFit.tight,
+                  child: Column(
+                    children: [
+                      Text(
+                        "${transaction.title}",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 14,
+                        ),
                       ),
-                    ),
-                    Text(
-                      "${transaction.date}",
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        color: Colors.grey,
-                        fontSize: 13,
+                      Text(
+                        "${transaction.date}",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: Colors.grey,
+                          fontSize: 13,
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
                 IconButton(
-                  onPressed: null,
+                  onPressed: () {
+                    deleteTransaction(transaction.id);
+                  },
                   icon: Icon(
                     Icons.delete,
                     color: Colors.red,
