@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'transaction_list.dart';
 import 'new_transaction.dart';
 import 'transaction.dart';
+import 'chart.dart';
 
 void main() {
   runApp(MyApp());
@@ -51,6 +52,30 @@ class _MyHomePageState extends State<MyHomePage> {
       price: 52.34,
       date: DateTime(2023, 10, 12),
     ),
+    Transaction(
+      id: "t3",
+      title: "Shoes",
+      price: 52.34,
+      date: DateTime(2023, 10, 12),
+    ),
+    Transaction(
+      id: "t4",
+      title: "Shoes",
+      price: 52.34,
+      date: DateTime(2023, 10, 12),
+    ),
+    Transaction(
+      id: "t3",
+      title: "Shoes",
+      price: 52.34,
+      date: DateTime(2023, 10, 12),
+    ),
+    Transaction(
+      id: "t4",
+      title: "Shoes",
+      price: 52.34,
+      date: DateTime(2023, 10, 12),
+    ),
   ];
 
   void addTransaction(Transaction transaction) {
@@ -61,12 +86,30 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void deleteTransaction(String id) {
     setState(() {
-      userTransaction.removeWhere((transaction) => (transaction.id == id));
+      userTransaction.removeWhere((transaction) {
+        return transaction.id == id;
+      });
     });
   }
 
   @override
   Widget build(BuildContext context) {
+    Widget noTransaction() {
+      return Container(
+        width: double.infinity,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            SizedBox(
+              height: 200,
+              child: Image.asset("assets/images/waiting.png"),
+            ),
+            Text("No Transaction added yet"),
+          ],
+        ),
+      );
+    }
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).primaryColor,
@@ -94,7 +137,16 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ],
       ),
-      body: TransactionList(userTransaction, deleteTransaction),
+      body: SingleChildScrollView(
+        child: userTransaction.isEmpty
+            ? noTransaction()
+            : Column(
+                children: [
+                  Chart(),
+                  TransactionList(userTransaction, deleteTransaction),
+                ],
+              ),
+      ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           showModalBottomSheet(
