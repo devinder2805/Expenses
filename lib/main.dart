@@ -25,6 +25,7 @@ class MyApp extends StatelessWidget {
           secondary: Colors.amber,
           brightness: Brightness.dark,
         ),
+        fontFamily: "UbuntuMono",
       ),
       debugShowCheckedModeBanner: false,
     );
@@ -39,44 +40,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  List<Transaction> userTransaction = [
-    Transaction(
-      id: "t3",
-      title: "Shoes",
-      price: 52.34,
-      date: DateTime(2023, 10, 12),
-    ),
-    Transaction(
-      id: "t4",
-      title: "Shoes",
-      price: 52.34,
-      date: DateTime(2023, 10, 12),
-    ),
-    Transaction(
-      id: "t3",
-      title: "Shoes",
-      price: 52.34,
-      date: DateTime(2023, 10, 12),
-    ),
-    Transaction(
-      id: "t4",
-      title: "Shoes",
-      price: 52.34,
-      date: DateTime(2023, 10, 12),
-    ),
-    Transaction(
-      id: "t3",
-      title: "Shoes",
-      price: 52.34,
-      date: DateTime(2023, 10, 12),
-    ),
-    Transaction(
-      id: "t4",
-      title: "Shoes",
-      price: 52.34,
-      date: DateTime(2023, 10, 12),
-    ),
-  ];
+  List<Transaction> userTransaction = [];
 
   void addTransaction(Transaction transaction) {
     setState(() {
@@ -118,6 +82,7 @@ class _MyHomePageState extends State<MyHomePage> {
           style: TextStyle(
             fontWeight: FontWeight.bold,
             color: Colors.white,
+            fontFamily: "Satisfy",
           ),
         ),
         actions: [
