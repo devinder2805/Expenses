@@ -1,39 +1,39 @@
 
-MaterialApp()
-Scaffold()
-AppBar()
-BottomNavigationBar()
+MaterialApp()<br>
+Scaffold()<br>
+AppBar()<br>
+BottomNavigationBar()<br>
 
-# Buttons
-FloatingActionButton()
-IconButton()
-TextButton()
-OutlinedButton()
-ElevatedButton()
+# Buttons<br>
+FloatingActionButton()<br>
+IconButton()<br>
+TextButton()<br>
+OutlinedButton()<br>
+ElevatedButton()<br>
 
-# multiple child widgets
-Row()
-Column()
-Stack()
+# multiple child widgets<br>
+Row()<br>
+Column()<br>
+Stack()<br>
 
-# basic widgets
-Container()
-SizedBox()
-Padding()
-Icon()
-Images.network()
-Card()
-Center()
-Text()
+# basic widgets<br>
+Container()<br>
+SizedBox()<br>
+Padding()<br>
+Icon()<br>
+Images.network()<br>
+Card()<br>
+Center()<br>
+Text()<br>
 
-# other widgets
-FittedBox()
-SingleChildScrollView()
-Flexible()
-Expanded()
-ListTile()
+# other widgets<br>
+FittedBox()<br>
+SingleChildScrollView()<br>
+Flexible()<br>
+Expanded()<br>
+ListTile()<br>
 
 
-# input widgets
-TextField()
+# input widgets<br>
+TextField()<br>
 
